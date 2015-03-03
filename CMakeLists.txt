@@ -17,11 +17,12 @@ set( PROJ_NAME "plot_test" )
 
 set( QT54_PATH F:/compiled_libraries/qt_5_4 )
 qt_compilers("mainwindow")
+qt_compilers("qcustomLib/qcustomplot")
 
 
 set( PROJ_LIBRARIES ${QT54_PATH}/lib/libQt5Widgets.a ${QT54_PATH}/lib/libQt5Core.a )
-set( PROJ_INCLUDES ${QT54_PATH}/include )
-file( GLOB_RECURSE PROJ_SOURCES *.cpp )
+set( PROJ_INCLUDES ${QT54_PATH}/include ${QT54_PATH}/include/QtANGLE ${CMAKE_SOURCE_DIR}/qcustomLib )
+file( GLOB_RECURSE PROJ_SOURCES *.cpp ${CMAKE_SOURCE_DIR}/qcustomLib/*.cpp )
 
 # End of special section
 
@@ -32,6 +33,7 @@ if ( UNIX )
 endif ( UNIX )
 
 
+set(CMAKE_SHARED_LINKER_FLAGS "-static")
 set( CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/../___bin___/${SOURCE_DIRECTORY_NAME}___${CMAKE_BUILD_TYPE}/" )
 project( ${PROJ_NAME} )
 include_directories( ${PROJ_INCLUDES} )
