@@ -15,12 +15,12 @@ endfunction(convert_ui_to_h)
 
 set( PROJ_NAME "plot_test" )
 
-set( QT_LOCATION F:/compiled_libraries/qt_5_4 )
+set( QT54_PATH F:/compiled_libraries/qt_5_4 )
 qt_compilers("mainwindow")
 
 
-set( PROJ_LIBRARIES ${QT_LOCATION}/lib/libQt5Widgets.a ${QT_LOCATION}/lib/libQt5Core.a )
-set( PROJ_INCLUDES ${QT_LOCATION}/include )
+set( PROJ_LIBRARIES ${QT54_PATH}/lib/libQt5Widgets.a ${QT54_PATH}/lib/libQt5Core.a )
+set( PROJ_INCLUDES ${QT54_PATH}/include )
 file( GLOB_RECURSE PROJ_SOURCES *.cpp )
 
 # End of special section
